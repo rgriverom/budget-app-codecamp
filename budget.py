@@ -45,7 +45,6 @@ def create_spend_chart(budgets: List[Category]) -> str:
         -sum([led.get('amount') for led in bud.ledger if led.get('amount') < 0]) for bud in budgets
     ]
     percents = [int((i / sum(withdraws) * 100) // 10 * 10) for i in withdraws]
-    print(percents)
     categories = [bud.category.lower().capitalize() for bud in budgets]
     for i in range(100, -10, -10):
         chart += str(i).rjust(3) + "| "
